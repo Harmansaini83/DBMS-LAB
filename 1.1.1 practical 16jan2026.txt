@@ -1,3 +1,5 @@
+notepad file:-
+
 1.create a table st_info with 3 subject and calculate total and percentage.
 2.insert atleast 10 records.
 
@@ -30,4 +32,50 @@ update st_info set total = m1+m2+m3;
 perc= total/3;
 
 #to delete all rows and colms i.e data in the table
+
 truncate table st_info; 
+
+
+ACTUAL CODE:-
+
+/* 1. Create table */
+CREATE TABLE st_info (
+    prn     INT,
+    st_name VARCHAR2(20),
+    m1      INT,
+    m2      INT,
+    m3      INT
+);
+
+/* 2. Add total and percentage columns */
+ALTER TABLE st_info ADD total INT;
+ALTER TABLE st_info ADD perc NUMBER(5,2);
+
+/* 3. Display table structure */
+DESC st_info;
+
+/* 4. Insert at least 10 records */
+INSERT INTO st_info VALUES (101, 'Amit', 78, 85, 90, NULL, NULL);
+INSERT INTO st_info VALUES (102, 'Neha', 65, 70, 75, NULL, NULL);
+INSERT INTO st_info VALUES (103, 'Rahul', 88, 92, 84, NULL, NULL);
+INSERT INTO st_info VALUES (104, 'Sneha', 55, 60, 58, NULL, NULL);
+INSERT INTO st_info VALUES (105, 'Karan', 91, 89, 95, NULL, NULL);
+INSERT INTO st_info VALUES (106, 'Pooja', 72, 68, 70, NULL, NULL);
+INSERT INTO st_info VALUES (107, 'Ravi', 80, 78, 82, NULL, NULL);
+INSERT INTO st_info VALUES (108, 'Anita', 66, 64, 69, NULL, NULL);
+INSERT INTO st_info VALUES (109, 'Sahil', 74, 76, 73, NULL, NULL);
+INSERT INTO st_info VALUES (110, 'Meena', 85, 87, 88, NULL, NULL);
+
+/* 5. Calculate total marks */
+UPDATE st_info
+SET total = m1 + m2 + m3;
+
+/* 6. Calculate percentage (assuming each subject is out of 100) */
+UPDATE st_info
+SET perc = (total / 300) * 100;
+
+/* 7. View data */
+SELECT * FROM st_info;
+
+/* 8. Delete all rows (structure remains) */
+TRUNCATE TABLE st_info;
